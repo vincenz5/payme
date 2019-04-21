@@ -22,6 +22,7 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 
 
 require('dotenv').config()  // Store environment-specific variable from '.env' to process.env
+
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
@@ -63,7 +64,10 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     ropsten: {
-      provider: () => new HDWalletProvider(process.env.MNENOMIC, "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY),
+      // provider: () => new HDWalletProvider("process.env.MNENOMIC", "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY),
+      provider: function() {
+        return new HDWalletProvider("birth avoid timber mountain private scrub demand cover angry wrestle nation myself", "https://ropsten.infura.io/");
+      },
       network_id: 3,       // Ropsten's id
       gas: 5500000,        // Ropsten has a lower block limit than mainnet
       confirmations: 2,    // # of confs to wait between deployments. (default: 0)
